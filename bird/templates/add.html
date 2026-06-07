@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить птицу</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="add-page-bg">
+
+    <nav class="navbar">
+        <a href="/">Главная</a>
+        <a href="/handbook">Справочник</a>
+        <a href="/add">Добавить птицу</a>
+    </nav>
+
+    <div class="form-container">
+        <div class="form-card">
+            <h1>Регистрация нового вида</h1>
+            <p class="form-subtitle">Введите данные для внесения в информационную систему</p>
+
+            <!-- ВАЖНО: добавлен enctype="multipart/form-data" -->
+            <form action="/add" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Название птицы:</label>
+                    <input type="text" name="name" placeholder="Например: Поползень" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Латинское название:</label>
+                    <input type="text" name="latin" placeholder="Например: Sitta europaea" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Среда обитания:</label>
+                    <input type="text" name="habitat" placeholder="Например: Смешанные леса" required>
+                </div>
+
+                <!-- ИСПРАВЛЕНО: теперь это поле для загрузки файла -->
+                <div class="form-group">
+                    <label>Фото птицы:</label>
+                    <input type="file" name="image" accept="image/*">
+                    <small style="color: #666; display: block; margin-top: 5px;">Поддерживаются форматы: PNG, JPG, JPEG, GIF, WEBP</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Краткое описание:</label>
+                    <textarea name="desc" rows="4" placeholder="Опишите особенности птицы..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Сохранить в базу данных</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

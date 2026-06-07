@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная | Цифровой атлас птиц</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="home-bg"> <!-- Этот класс добавит фон на всю страницу -->
+
+    <nav class="navbar">
+        <a href="/">Главная</a>
+        <a href="/handbook">Справочник птиц</a>
+        <a href="/add">Добавить вид</a>
+    </nav>
+
+    <div class="hero"> <!-- Этот блок отцентрирует текст -->
+        <div class="hero-content">
+            <h1>Цифровой атлас птиц</h1>
+            <p>Информационная система для мониторинга и изучения орнитофауны. <br>
+               Узнайте больше о многообразии пернатых.</p>
+
+            <a href="/handbook" class="btn">Открыть каталог птиц</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Орнитологический справочник</p>
+    </footer>
+
+</body>
+</html>

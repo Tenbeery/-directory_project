@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Орнитологический справочник</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="/">Главная</a>
+        <a href="/handbook">Справочник птиц</a>
+        <a href="/add">Добавить вид</a>
+    </nav>
+
+    <div class="container">
+        <header class="page-header">
+            <h1>Орнитологический справочник</h1>
+            <p>Изучите многообразие пернатых</p>
+        </header>
+
+        <div class="bird-grid">
+            {% for bird in data.birds %}
+            <div class="bird-card">
+                <div class="img-container">
+                    <!-- ИСПРАВЛЕНО: путь к фото теперь из папки uploads -->
+                    <img src="{{ url_for('static', filename='uploads/' + bird.image) }}" alt="{{ bird.name }}">
+                </div>
+                <div class="bird-info">
+                    <h3>{{ bird.name }}</h3>
+                    <em class="latin">{{ bird.latin }}</em>
+                    <p class="habitat"><strong>Ареал:</strong> {{ bird.habitat }}</p>
+                    <p class="desc">{{ bird.desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Проект по моделированию ИС</p>
+    </footer>
+</body>
+</html>
